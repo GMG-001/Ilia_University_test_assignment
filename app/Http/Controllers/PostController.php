@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class PostController extends Controller
@@ -32,7 +31,7 @@ class PostController extends Controller
         $posts = collect(cache('posts'));
         $posts = collect($posts)->where('userId',$id);
 
-        return view('userposts',compact('posts'));
+        return view('userPosts',compact('posts'));
     }
 
     public function post(int $id): object
